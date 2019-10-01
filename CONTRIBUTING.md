@@ -1,5 +1,5 @@
 # Contribuyendo
-Al contribuir a este repositorio, primero discuta el cambio que desea realizar a través de un problema, correo electrónico o cualquier otro método con los propietarios de este repositorio antes de realizar un cambio.
+Al contribuir a este repositorio, primero discuta el cambio que desea realizar a través de un issue, correo electrónico o cualquier otro método con los propietarios de este repositorio antes de realizar un cambio.
 
 Tenga en cuenta que tenemos un código de conducta, sígalo en todas sus interacciones con el proyecto.
 
