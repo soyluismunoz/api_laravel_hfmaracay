@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use App\Queries\QueryFilter;
 
 class User extends Authenticatable
 {
@@ -62,5 +63,10 @@ class User extends Authenticatable
   public function area()
   {
     return $this->belongsTo(Area::class);
+  }
+
+  public function scopeFilterBy($query, QueryFilter $filters, array $data)
+  {
+    return $filters->applyTo($query, $data);
   }
 }

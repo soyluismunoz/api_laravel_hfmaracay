@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -24,7 +25,7 @@ class AuthController extends Controller
       $credentials = request(['email', 'password']);
       if (!Auth::attempt($credentials)) {
           return response()->json([
-              'message' => 'Unauthorized'], 401);
+              'message' => 'Correo o contraseña inválidos'], 401);
       }
       $user = $request->user();
       $tokenResult = $user->createToken('Personal Access Token');
@@ -47,10 +48,5 @@ class AuthController extends Controller
       $request->user()->token()->revoke();
       return response()->json(['message' =>
           'Successfully logged out']);
-    }
-
-    public function user(Request $request)
-    {
-      return response()->json($request->user());
     }
 }
