@@ -41,5 +41,37 @@ class UserController extends Controller
   public function show(User $user)
   {
     return response()->json($user,200);
-  }
+	}
+
+		/**
+	 * Delete the specified resource.
+	 *
+	 * @param  \App\User $user
+	 * @return \Illuminate\Http\Response
+	 */
+	public function delete(User $user)
+	{
+		$user->delete();
+		
+		return response()->json([
+			'message' => 'Usuario eliminado con éxito'
+		]);
+	}
+	
+	  /**
+   * Remove the specified resource from storage.
+   *
+   * @param  int  $id
+   * @return \Illuminate\Http\Response
+   */
+	public function destroy($id)
+	{
+		$user = User::onlyTrashed()->where('id', $id)->first();
+
+		$user->forceDelete();
+		
+		return response()->json([
+			'message' => 'Usuario eliminado con éxito'
+		]);
+	}
 }

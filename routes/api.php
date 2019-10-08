@@ -21,5 +21,7 @@ Route::group(['prefix' => 'auth'], function () {
         Route::get('logout', 'AuthController@logout');
         Route::get('usuarios','Admin\UserController@index');
         Route::get('usuario/{user}','Admin\UserController@show');
+        Route::patch('/usuarios/{user}/trash', 'Admin\UserController@delete')->where('user', '[0-9]+');
+        Route::delete('usuarios/{id}/destroy','Admin\UserController@destroy')-where('id', '[0-9]+');
     });
 });
