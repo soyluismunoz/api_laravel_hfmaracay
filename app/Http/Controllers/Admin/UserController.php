@@ -42,6 +42,21 @@ class UserController extends Controller
   {
     return response()->json($user,200);
 	}
+
+		/**
+	 * Delete the specified resource.
+	 *
+	 * @param  \App\User $user
+	 * @return \Illuminate\Http\Response
+	 */
+	public function delete(User $user)
+	{
+		$user->delete();
+		
+		return response()->json([
+			'message' => 'Usuario eliminado con éxito'
+		]);
+	}
 	
 	  /**
    * Remove the specified resource from storage.
@@ -55,6 +70,8 @@ class UserController extends Controller
 
 		$user->forceDelete();
 		
-    return redirect()->back()->with('message', 'Usuario eliminado con éxito');
+		return response()->json([
+			'message' => 'Usuario eliminado con éxito'
+		]);
 	}
 }
