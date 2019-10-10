@@ -17,11 +17,11 @@ Route::group(['prefix' => 'auth'], function () {
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@signup');
 
-    Route::group(['middleware' => 'auth:api'], function() {
+    Route::group(['middleware' => 'auth:api'], function () {
         Route::get('logout', 'AuthController@logout');
-        Route::get('usuarios','Admin\UserController@index');
-        Route::get('usuario/{user}','Admin\UserController@show');
+        Route::get('usuarios', 'Admin\UserController@index');
+        Route::get('usuario/{user}', 'Admin\UserController@show');
         Route::patch('/usuarios/{user}/trash', 'Admin\UserController@delete')->where('user', '[0-9]+');
-        Route::delete('usuarios/{id}/destroy','Admin\UserController@destroy')-where('id', '[0-9]+');
+        Route::delete('usuarios/{id}/destroy', 'Admin\UserController@destroy') - where('id', '[0-9]+');
     });
 });
