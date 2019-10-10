@@ -55,18 +55,20 @@ class User extends Authenticatable
     ];
 
     /**
-   * Get the country that owns the profile.
-   */
-  public function country() {
-    return $this->belongsTo(Country::class);
-  }
-  public function area()
-  {
-    return $this->belongsTo(Area::class);
-  }
+     * Get the country that owns the profile.
+     */
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
 
-  public function scopeFilterBy($query, QueryFilter $filters, array $data)
-  {
-    return $filters->applyTo($query, $data);
-  }
+    public function area()
+    {
+        return $this->belongsTo(Area::class);
+    }
+
+    public function scopeFilterBy($query, QueryFilter $filters, array $data)
+    {
+        return $filters->applyTo($query, $data);
+    }
 }
