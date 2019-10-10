@@ -23,5 +23,10 @@ Route::group(['prefix' => 'auth'], function () {
         Route::get('usuario/{user}', 'Admin\UserController@show');
         Route::patch('/usuarios/{user}/trash', 'Admin\UserController@delete')->where('user', '[0-9]+');
         Route::delete('usuarios/{id}/destroy','Admin\UserController@destroy')->where('id', '[0-9]+');
+
+        Route::get('pictures', 'PictureController@get');
+        Route::post('pictures', 'PictureController@post');
+        Route::get('pictures/{id}', 'PictureController@show')->where('id', '\d+');
+        Route::delete('pictures/{id}', 'PictureController@delete')->where('id', '\d+');
     });
 });
