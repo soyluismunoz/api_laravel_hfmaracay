@@ -1,7 +1,7 @@
 <?php
 
-use App\Country;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class CountrySeeder extends Seeder
 {
@@ -12,7 +12,7 @@ class CountrySeeder extends Seeder
    */
   public function run()
   {
-    $path = 'database/sql/countries.sql';
+    $path = base_path().'/database/sql/countries.sql';
     DB::unprepared(file_get_contents($path));
     $this->command->info('Countries table seeded!');
   }

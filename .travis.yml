@@ -1,0 +1,25 @@
+language: php
+
+php:
+  - 7.2
+  - 7.3
+
+sudo: required
+
+services:
+  - mysql
+
+cache:
+  directories:
+    - "$HOME/.composer/cache"
+
+before_script:
+  - cp .env.travis .env
+  - sudo mysql -e 'CREATE DATABASE hfmaracay_api_test;'
+  - composer self-update
+  - composer install --no-interaction
+  - php artisan key:generate
+  - php artisan migrate --no-interaction -vvv
+
+script:
+  - vendor/bin/phpunit --coverage-text
