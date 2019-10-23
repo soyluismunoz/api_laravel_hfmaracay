@@ -21,7 +21,7 @@ class CreateEventsTable extends Migration
             $table->string('description')->nullable();
             $table->string('mapUrl')->nullable();
             $table->bigInteger('image_id')->nullable()->unsigned();
-            $table->foreign('image_id');
+            $table->foreign('image_id')->references('id')->on('pictures')->onDelete('CASCADE');
             $table->softDeletes();
         });
     }
