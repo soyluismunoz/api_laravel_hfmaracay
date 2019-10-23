@@ -27,6 +27,7 @@ Route::group(['prefix' => 'auth'], function () {
         Route::get('pictures', 'PictureController@get');
         Route::post('pictures', 'PictureController@post');
         Route::get('pictures/{id}', 'PictureController@show')->where('id', '\d+');
+        Route::patch('pictures/{id}', 'PictureController@patch')->where('id', '\d+');
         Route::delete('pictures/{id}', 'PictureController@delete')->where('id', '\d+');
     });
 });
