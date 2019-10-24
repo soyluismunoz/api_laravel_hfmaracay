@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Pictures;
 use Illuminate\Http\Request;
 
-class PicturesController extends Controller
+class EventController extends Controller
 {
     public function __construct()
     {
@@ -23,6 +22,11 @@ class PicturesController extends Controller
     }
 
     public function show($id)
+    {
+        //TODO: implementar
+    }
+
+    public function patch($id, Request $request)
     {
         //TODO: implementar
     }
