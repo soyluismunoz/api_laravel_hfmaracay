@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Pictures;
+use App\Queries\PictureFilter;
 use Illuminate\Http\Request;
+use App\Pictures;
 
 class PicturesController extends Controller
 {
@@ -12,9 +13,15 @@ class PicturesController extends Controller
         $this->middleware('api');
     }
 
-    public function get()
+    public function get(Request $request, PictureFilter $filters)
     {
-        //TODO: implementar
+    $pictures = Picture::query()
+                    ->filterBy($filters, $request->only(['search', 'from', 'to']))
+                    ->orderBy('id', 'DESC')
+                    ->paginate();
+    $pictures->appends($filters->valid());
+
+    return response()->json($pictures, 200);
     }
 
     public function add(Request $request)
