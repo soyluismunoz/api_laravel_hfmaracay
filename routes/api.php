@@ -33,10 +33,10 @@ Route::group(['prefix' => 'auth'], function () {
     Route::delete('/areas/{id}/destroy', 'Admin\AreaController@destroy')->where('id', '[0-9]+');
 
     // Pictures
-    Route::get('/pictures', 'Admin\PictureController@get');
-    Route::post('/pictures', 'Admin\PictureController@post');
-    Route::get('/pictures/{id}', 'Admin\PictureController@show')->where('id', '\d+');
-    Route::patch('/pictures/{id}', 'Admin\PictureController@patch')->where('id', '\d+');
-    Route::delete('/pictures/{id}', 'Admin\PictureController@delete')->where('id', '\d+');
+    Route::get('/pictures', 'Admin\PicturesController@get');
+    Route::post('/pictures', 'Admin\PicturesController@post');
+    Route::get('/pictures/{id}', 'Admin\PicturesController@show')->where('id', '\d+');
+    Route::patch('/pictures/{id}', 'Admin\PicturesController@patch')->where('id', '\d+');
+    Route::delete('/pictures/{id}', 'Admin\PicturesController@delete')->where('id', '\d+');
   });
 });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Queries\PictureFilter;
 use Illuminate\Http\Request;
 use App\Pictures;
