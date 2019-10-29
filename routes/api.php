@@ -40,3 +40,6 @@ Route::group(['prefix' => 'auth'], function () {
     Route::delete('/pictures/{id}', 'Admin\PicturesController@delete')->where('id', '\d+');
   });
 });
+
+Route::get('blogs', 'BlogController@getBlogs')->name('getBlogs');
+Route::get('blog/{slug}', 'BlogController@show')->name('show');
