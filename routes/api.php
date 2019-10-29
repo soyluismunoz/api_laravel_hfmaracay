@@ -46,3 +46,6 @@ Route::get('blog/{slug}', 'BlogController@show')->name('show');
 
 Route::get('categorias', 'CategoryController@getCategories')->name('getCategories');
 Route::get('categoria/{slug}', 'CategoryController@show')->name('show');
+
+Route::get('etiquetas', 'TagController@getTags')->name('getTags');
+Route::get('etiqueta/{slug}', 'TagController@show')->name('show');

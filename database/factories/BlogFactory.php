@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(Blog::class, function (Faker $faker) {
     $tittle = $faker->sentence(3);
     return [
-        //'user_id'     => rand(1, 30),
+        'user_id'       => rand(1, 30),
     	'category_id'   => rand(1, 40),
         'title'         => $tittle,
         'slug'          => Str::slug($tittle),
