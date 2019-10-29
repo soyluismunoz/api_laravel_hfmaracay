@@ -71,4 +71,9 @@ class User extends Authenticatable
     {
         return $filters->applyTo($query, $data);
     }
+
+    // Get posts related to the user
+    public function Blogs(){	
+    	return $this->hasMany(Blog::class);
+    }
 }

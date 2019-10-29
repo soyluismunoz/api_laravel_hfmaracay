@@ -43,3 +43,6 @@ Route::group(['prefix' => 'auth'], function () {
 
 Route::get('blogs', 'BlogController@getBlogs')->name('getBlogs');
 Route::get('blog/{slug}', 'BlogController@show')->name('show');
+
+Route::get('categorias', 'CategoryController@getCategories')->name('getCategories');
+Route::get('categoria/{slug}', 'CategoryController@show')->name('show');
